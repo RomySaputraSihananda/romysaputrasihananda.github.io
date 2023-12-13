@@ -8,7 +8,7 @@
 }
 
 body {
-  background-image: url("ella.jpeg");
+  background-image: url("/ella.jpeg");
   width: 100vw;
   height: 100vh;
   background-size: cover;
