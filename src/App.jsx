@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "./layout";
+import { RandomReveal } from "react-random-reveal";
 
 import clsx from "clsx";
 
@@ -38,9 +39,18 @@ class App extends React.Component {
     return (
       <Layout>
         <div className="w-sreen h-screen grid place-items-center bg-darkBlue relative overflow-hidden">
-          <h1 className="font-Montserrat font-bold md:text-6xl text-3xl text-white tracking-widest drop-shadow-[0_35px_35px_rgba(255,255,255,0.85)]">
-            HELLO WORLD
-          </h1>
+          <div className="text-center">
+            <h1 className="font-Montserrat font-bold md:text-6xl text-2xl text-white tracking-[.5em] drop-shadow-[0_35px_35px_rgba(255,255,255,0.45)] md:mb-10 mb-5">
+              HELLO WORLD !
+            </h1>
+            <h2 className="font-Montserrat font-semibold md:text-5xl text-xl text-white tracking-[.4em] drop-shadow-[0_35px_35px_rgba(255,255,255,0.45)]">
+              <RandomReveal
+                isPlaying
+                duration={2}
+                characters="I'm ROMY よろしく ( ◡̀_◡́)ᕤ"
+              />
+            </h2>
+          </div>
           <div className="absolute w-[100vh] h-screen md:-bottom-[650px] -bottom-[550px] bg-gradient-to-t from-darkBlue to-white/95 rounded-full"></div>
           <Meteors number={100} />
         </div>
