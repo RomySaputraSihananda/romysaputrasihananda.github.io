@@ -11,8 +11,8 @@ class Layout extends React.Component {
 
     return (
       <main className="relative">
-        <Navbar />
-        <SideBar />
+        {/* <Navbar /> */}
+        {/* <SideBar /> */}
         {children}
       </main>
     );
