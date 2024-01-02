@@ -41,7 +41,7 @@ class App extends React.Component {
           <h1 className="font-Montserrat font-bold md:text-6xl text-3xl text-white tracking-widest drop-shadow-[0_35px_35px_rgba(255,255,255,0.85)]">
             HELLO WORLD
           </h1>
-          <div className="absolute w-[100vh] h-screen -bottom-[650px] bg-gradient-to-t from-darkBlue to-white/95 rounded-full"></div>
+          <div className="absolute md:w-[100vh] w-screen md:h-screen h-[100vw] md:-bottom-[650px] -bottom-[300px] bg-gradient-to-t from-darkBlue to-white/95 rounded-full"></div>
           <Meteors number={100} />
         </div>
       </Layout>
