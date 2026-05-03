@@ -1,19 +1,15 @@
 export default function Footer() {
   return (
     <footer
-      className="py-10 border-t"
-      style={{ background: "#080d1a", borderColor: "rgba(34,211,238,0.08)" }}
+      className="py-10"
+      style={{ background: "#0a0a0a", borderTop: "3px solid #0a0a0a" }}
     >
-      <div className="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span
-          className="font-display font-extrabold text-xl"
-          style={{ color: "#e2f4ff" }}
-        >
-          Romy<span style={{ color: "#22d3ee" }}>.</span>
+      <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span className="font-display font-extrabold text-xl" style={{ color: "#fafaf5" }}>
+          Romy<span style={{ color: "#ffe500" }}>.</span>
         </span>
-        <p className="text-sm" style={{ color: "#7a9ab8" }}>
-          © {new Date().getFullYear()} Romy Saputra Sihananda — Built with React
-          &amp; Tailwind
+        <p className="text-sm font-medium" style={{ color: "#a0a0a0" }}>
+          © {new Date().getFullYear()} Romy Saputra Sihananda — Built with React &amp; Tailwind
         </p>
       </div>
     </footer>

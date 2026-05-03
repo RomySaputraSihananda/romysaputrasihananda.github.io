@@ -5,32 +5,29 @@ const EMAIL = "romysaputrasihanandaa@gmail.com";
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(`Pesan dari ${form.name} — Portfolio`);
-    const body = encodeURIComponent(
-      `Nama: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
-    );
+    const body = encodeURIComponent(`Nama: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
   };
 
   const inputStyle: React.CSSProperties = {
-    background: "#080d1a",
-    border: "1px solid rgba(34,211,238,0.15)",
-    color: "#c8d4e8",
-    borderRadius: "12px",
+    background: "#ffffff",
+    border: "2px solid #0a0a0a",
+    color: "#0a0a0a",
     padding: "12px 16px",
     fontSize: "14px",
     width: "100%",
     outline: "none",
     fontFamily: "Space Grotesk, sans-serif",
-    transition: "border-color 0.2s",
+    fontWeight: "500",
+    transition: "box-shadow 0.15s, transform 0.15s",
+    boxShadow: "3px 3px 0 #0a0a0a",
   };
 
   const contacts = [
@@ -38,18 +35,8 @@ export default function Contact() {
       label: EMAIL,
       href: `mailto:${EMAIL}`,
       icon: (
-        <svg
-          className="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       ),
     },
@@ -74,30 +61,36 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24" style={{ background: "#080d1a" }}>
-      <div className="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+    <section id="contact" className="py-24" style={{ background: "#fafaf5" }}>
+      <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16">
         <div>
-          <p
-            className="text-xs font-semibold tracking-widest uppercase mb-2"
-            style={{ color: "#22d3ee" }}
+          <div
+            className="inline-block px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest"
+            style={{ background: "#0a0a0a", color: "#ffe500" }}
           >
             Let's Talk
-          </p>
+          </div>
           <h2
             className="font-display font-extrabold text-4xl leading-tight mb-6"
-            style={{ color: "#e2f4ff" }}
+            style={{ color: "#0a0a0a" }}
           >
             Let's build
             <br />
-            <span style={{ color: "#22d3ee" }}>something</span> together
+            <span
+              style={{
+                background: "#ffe500",
+                padding: "0 6px",
+                border: "2px solid #0a0a0a",
+                display: "inline",
+              }}
+            >
+              something
+            </span>{" "}
+            together
           </h2>
-          <p
-            className="text-base leading-relaxed mb-10"
-            style={{ color: "#7a9ab8" }}
-          >
+          <p className="text-base leading-relaxed mb-10 font-medium" style={{ color: "#3d3d3d" }}>
             Have a project idea, want to collaborate, or just want to say hello?
-            Feel free to reach out — I'm always open to interesting
-            conversations.
+            Feel free to reach out — I'm always open to interesting conversations.
           </p>
 
           <div className="flex flex-col gap-4">
@@ -110,24 +103,19 @@ export default function Contact() {
                 className="flex items-center gap-3 group"
               >
                 <div
-                  className="w-8 h-8 rounded-lg border flex items-center justify-center text-sm flex-shrink-0"
+                  className="w-8 h-8 flex items-center justify-center flex-shrink-0 transition-all duration-150"
                   style={{
-                    background: "rgba(34,211,238,0.06)",
-                    borderColor: "rgba(34,211,238,0.15)",
-                    color: "#22d3ee",
+                    background: "#ffe500",
+                    border: "2px solid #0a0a0a",
+                    boxShadow: "2px 2px 0 #0a0a0a",
+                    color: "#0a0a0a",
                   }}
                 >
                   {item.icon}
                 </div>
                 <span
-                  className="text-sm transition-colors duration-200 group-hover:underline underline-offset-2"
-                  style={{ color: "#7a9ab8" }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "#22d3ee")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "#7a9ab8")
-                  }
+                  className="text-sm font-bold transition-all duration-150 group-hover:underline underline-offset-2"
+                  style={{ color: "#0a0a0a" }}
                 >
                   {item.label}
                 </span>
@@ -137,15 +125,16 @@ export default function Contact() {
         </div>
 
         <div
-          className="rounded-2xl border p-8"
-          style={{ background: "#0d1526", borderColor: "rgba(34,211,238,0.1)" }}
+          className="p-8"
+          style={{
+            background: "#ffffff",
+            border: "3px solid #0a0a0a",
+            boxShadow: "6px 6px 0 #0a0a0a",
+          }}
         >
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div>
-              <label
-                className="text-xs font-medium mb-1.5 block"
-                style={{ color: "#7a9ab8" }}
-              >
+              <label className="text-xs font-bold mb-1.5 block" style={{ color: "#0a0a0a" }}>
                 Your Name
               </label>
               <input
@@ -155,17 +144,18 @@ export default function Contact() {
                 placeholder="Budi Santoso"
                 required
                 style={inputStyle}
-                onFocus={(e) => (e.currentTarget.style.borderColor = "#22d3ee")}
-                onBlur={(e) =>
-                  (e.currentTarget.style.borderColor = "rgba(34,211,238,0.15)")
-                }
+                onFocus={(e) => {
+                  e.currentTarget.style.boxShadow = "5px 5px 0 #0a0a0a";
+                  e.currentTarget.style.transform = "translate(-2px, -2px)";
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.boxShadow = "3px 3px 0 #0a0a0a";
+                  e.currentTarget.style.transform = "translate(0, 0)";
+                }}
               />
             </div>
             <div>
-              <label
-                className="text-xs font-medium mb-1.5 block"
-                style={{ color: "#7a9ab8" }}
-              >
+              <label className="text-xs font-bold mb-1.5 block" style={{ color: "#0a0a0a" }}>
                 Your Email
               </label>
               <input
@@ -176,17 +166,18 @@ export default function Contact() {
                 placeholder="budi@email.com"
                 required
                 style={inputStyle}
-                onFocus={(e) => (e.currentTarget.style.borderColor = "#22d3ee")}
-                onBlur={(e) =>
-                  (e.currentTarget.style.borderColor = "rgba(34,211,238,0.15)")
-                }
+                onFocus={(e) => {
+                  e.currentTarget.style.boxShadow = "5px 5px 0 #0a0a0a";
+                  e.currentTarget.style.transform = "translate(-2px, -2px)";
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.boxShadow = "3px 3px 0 #0a0a0a";
+                  e.currentTarget.style.transform = "translate(0, 0)";
+                }}
               />
             </div>
             <div>
-              <label
-                className="text-xs font-medium mb-1.5 block"
-                style={{ color: "#7a9ab8" }}
-              >
+              <label className="text-xs font-bold mb-1.5 block" style={{ color: "#0a0a0a" }}>
                 Message
               </label>
               <textarea
@@ -197,35 +188,36 @@ export default function Contact() {
                 rows={5}
                 required
                 style={{ ...inputStyle, resize: "none" }}
-                onFocus={(e) => (e.currentTarget.style.borderColor = "#22d3ee")}
-                onBlur={(e) =>
-                  (e.currentTarget.style.borderColor = "rgba(34,211,238,0.15)")
-                }
+                onFocus={(e) => {
+                  e.currentTarget.style.boxShadow = "5px 5px 0 #0a0a0a";
+                  e.currentTarget.style.transform = "translate(-2px, -2px)";
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.boxShadow = "3px 3px 0 #0a0a0a";
+                  e.currentTarget.style.transform = "translate(0, 0)";
+                }}
               />
             </div>
             <button
               type="submit"
-              className="mt-1 w-full py-3 rounded-full font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2"
-              style={{ background: "#22d3ee", color: "#080d1a" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.background = "#67e8f9")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.background = "#22d3ee")
-              }
+              className="mt-1 w-full py-3 font-bold text-sm transition-all duration-150 flex items-center justify-center gap-2"
+              style={{
+                background: "#ffe500",
+                color: "#0a0a0a",
+                border: "3px solid #0a0a0a",
+                boxShadow: "4px 4px 0 #0a0a0a",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-2px, -2px)";
+                e.currentTarget.style.boxShadow = "6px 6px 0 #0a0a0a";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = "4px 4px 0 #0a0a0a";
+              }}
             >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               Send via Email
             </button>

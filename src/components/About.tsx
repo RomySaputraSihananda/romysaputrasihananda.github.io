@@ -32,72 +32,70 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24" style={{ background: "#0a1020" }}>
-      <div className="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-24" style={{ background: "#ffffff" }}>
+      <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div className="relative">
           <div
-            className="aspect-[4/5] rounded-2xl overflow-hidden border"
-            style={{ borderColor: "rgba(34,211,238,0.12)" }}
+            className="aspect-[4/5] overflow-hidden"
+            style={{
+              border: "3px solid #0a0a0a",
+              boxShadow: "8px 8px 0 #0a0a0a",
+            }}
           >
-            <img
-              src={Avatar}
-              alt="Avatar"
-              className="w-full h-full object-cover"
-            />
+            <img src={Avatar} alt="Avatar" className="w-full h-full object-cover" />
           </div>
+          <div
+            className="absolute -bottom-3 -right-3 w-14 h-14 -z-10"
+            style={{ background: "#ffe500", border: "3px solid #0a0a0a" }}
+          />
         </div>
 
         <div>
-          <p
-            className="text-xs font-semibold tracking-widest uppercase mb-3"
-            style={{ color: "#22d3ee" }}
+          <div
+            className="inline-block px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest"
+            style={{ background: "#0a0a0a", color: "#ffe500" }}
           >
             About Me
-          </p>
+          </div>
           <h2
             className="font-display font-extrabold text-4xl leading-tight mb-6"
-            style={{ color: "#e2f4ff" }}
+            style={{ color: "#0a0a0a" }}
           >
             Building for the
             <br />
-            <span style={{ color: "#22d3ee" }}>Modern Web</span>
+            <span
+              style={{
+                background: "#ffe500",
+                padding: "0 6px",
+                border: "2px solid #0a0a0a",
+                display: "inline",
+              }}
+            >
+              Modern Web
+            </span>
           </h2>
-          <p
-            className="text-base leading-relaxed mb-4"
-            style={{ color: "#7a9ab8" }}
-          >
+          <p className="text-base leading-relaxed mb-4 font-medium" style={{ color: "#3d3d3d" }}>
             I'm a Full Stack Developer based in Blitar, Indonesia. I specialize
             in building modern web applications — clean UIs, solid backends, and
             reliable infrastructure. When projects call for it, I also work with
             Web3: smart contracts, wallet integrations, and decentralized apps.
           </p>
-          <p
-            className="text-base leading-relaxed mb-8"
-            style={{ color: "#7a9ab8" }}
-          >
+          <p className="text-base leading-relaxed mb-8 font-medium" style={{ color: "#3d3d3d" }}>
             I care about code quality, great user experience, and shipping
             products people actually use. When I'm not coding, I'm probably
             exploring the latest in tech or enjoying a cup of kopi susu ☕.
           </p>
 
           <div className="flex flex-wrap gap-2 mb-8">
-            {[
-              "React",
-              "TypeScript",
-              "Node.js",
-              "Next.js",
-              "PostgreSQL",
-              "Solidity",
-              "ethers.js",
-              "Docker",
-            ].map((tech) => (
+            {["React", "TypeScript", "Node.js", "Next.js", "PostgreSQL", "Solidity", "ethers.js", "Docker"].map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1.5 rounded-full text-xs font-medium border"
+                className="px-3 py-1.5 text-xs font-bold"
                 style={{
-                  background: "rgba(34,211,238,0.05)",
-                  borderColor: "rgba(34,211,238,0.15)",
-                  color: "#c8d4e8",
+                  background: "#fafaf5",
+                  border: "2px solid #0a0a0a",
+                  boxShadow: "2px 2px 0 #0a0a0a",
+                  color: "#0a0a0a",
                 }}
               >
                 {tech}
@@ -113,55 +111,31 @@ export default function About() {
                 title={s.title}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg border flex items-center justify-center transition-all duration-200"
+                className="w-9 h-9 flex items-center justify-center transition-all duration-150"
                 style={{
-                  borderColor: "rgba(34,211,238,0.15)",
-                  color: "#7a9ab8",
-                  background: "rgba(34,211,238,0.04)",
+                  border: "2px solid #0a0a0a",
+                  boxShadow: "3px 3px 0 #0a0a0a",
+                  color: "#0a0a0a",
+                  background: "#ffffff",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#22d3ee";
-                  e.currentTarget.style.color = "#22d3ee";
+                  e.currentTarget.style.background = "#ffe500";
+                  e.currentTarget.style.transform = "translate(-2px, -2px)";
+                  e.currentTarget.style.boxShadow = "5px 5px 0 #0a0a0a";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(34,211,238,0.15)";
-                  e.currentTarget.style.color = "#7a9ab8";
+                  e.currentTarget.style.background = "#ffffff";
+                  e.currentTarget.style.transform = "translate(0, 0)";
+                  e.currentTarget.style.boxShadow = "3px 3px 0 #0a0a0a";
                 }}
               >
                 {s.icon}
               </a>
             ))}
-            <span className="text-sm ml-1" style={{ color: "#7a9ab8" }}>
+            <span className="text-sm font-medium ml-2" style={{ color: "#3d3d3d" }}>
               — Blitar, Indonesia
             </span>
           </div>
-
-          {/* <a
-            href="/resume.pdf"
-            className="inline-flex items-center gap-2 text-sm font-semibold border-b pb-0.5 transition-colors duration-200"
-            style={{ color: "#22d3ee", borderColor: "rgba(34,211,238,0.3)" }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "#22d3ee";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(34,211,238,0.3)";
-            }}
-          >
-            Download Resume
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              />
-            </svg>
-          </a> */}
         </div>
       </div>
     </section>

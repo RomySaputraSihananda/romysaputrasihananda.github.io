@@ -8,10 +8,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <main
-      className="antialiased"
-      style={{ backgroundColor: "#080d1a", color: "#c8d4e8" }}
-    >
+    <main className="antialiased" style={{ backgroundColor: "#fafaf5", color: "#0a0a0a" }}>
       <Navbar />
       <Hero />
       <About />

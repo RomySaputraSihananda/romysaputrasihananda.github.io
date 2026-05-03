@@ -14,20 +14,19 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-200"
       style={{
-        background: scrolled ? "rgba(8,13,26,0.88)" : "transparent",
-        backdropFilter: scrolled ? "blur(14px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(34,211,238,0.08)" : "none",
+        background: "#fafaf5",
+        borderBottom: scrolled ? "3px solid #0a0a0a" : "3px solid transparent",
       }}
     >
-      <nav className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <a
           href="#"
           className="font-display font-extrabold text-xl tracking-tight"
-          style={{ color: "#e2f4ff" }}
+          style={{ color: "#0a0a0a" }}
         >
-          Romy<span style={{ color: "#22d3ee" }}>.</span>
+          Romy<span style={{ color: "#ffe500", WebkitTextStroke: "1px #0a0a0a" }}>.</span>
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
@@ -35,10 +34,8 @@ export default function Navbar() {
             <li key={link}>
               <a
                 href={`#${link.toLowerCase()}`}
-                className="text-sm font-medium transition-colors duration-200"
-                style={{ color: "#7a9ab8" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#e2f4ff")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#7a9ab8")}
+                className="text-sm font-bold transition-all duration-150 hover:underline underline-offset-4"
+                style={{ color: "#0a0a0a", textDecorationColor: "#ffe500", textDecorationThickness: "3px" }}
               >
                 {link}
               </a>
@@ -47,15 +44,20 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              className="text-sm font-semibold px-5 py-2 rounded-full border transition-all duration-200"
-              style={{ borderColor: "#22d3ee", color: "#22d3ee" }}
+              className="text-sm font-bold px-5 py-2 transition-all duration-150 inline-block"
+              style={{
+                background: "#ffe500",
+                color: "#0a0a0a",
+                border: "2px solid #0a0a0a",
+                boxShadow: "3px 3px 0 #0a0a0a",
+              }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#22d3ee";
-                e.currentTarget.style.color = "#080d1a";
+                e.currentTarget.style.transform = "translate(-2px, -2px)";
+                e.currentTarget.style.boxShadow = "5px 5px 0 #0a0a0a";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "#22d3ee";
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = "3px 3px 0 #0a0a0a";
               }}
             >
               Hire Me
@@ -68,26 +70,26 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span
-            className={`block w-5 h-0.5 transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-            style={{ background: "#22d3ee" }}
+            className={`block w-6 h-0.5 transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+            style={{ background: "#0a0a0a" }}
           />
           <span
-            className={`block w-5 h-0.5 transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`}
-            style={{ background: "#22d3ee" }}
+            className={`block w-6 h-0.5 transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`}
+            style={{ background: "#0a0a0a" }}
           />
           <span
-            className={`block w-5 h-0.5 transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-            style={{ background: "#22d3ee" }}
+            className={`block w-6 h-0.5 transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            style={{ background: "#0a0a0a" }}
           />
         </button>
       </nav>
 
       {menuOpen && (
         <div
-          className="md:hidden px-6 py-4 flex flex-col gap-5"
+          className="md:hidden px-6 py-4 flex flex-col gap-4"
           style={{
-            background: "#0d1526",
-            borderTop: "1px solid rgba(34,211,238,0.1)",
+            background: "#fafaf5",
+            borderTop: "3px solid #0a0a0a",
           }}
         >
           {links.map((link) => (
@@ -95,8 +97,8 @@ export default function Navbar() {
               key={link}
               href={`#${link.toLowerCase()}`}
               onClick={() => setMenuOpen(false)}
-              className="text-sm font-medium"
-              style={{ color: "#c8d4e8" }}
+              className="text-sm font-bold"
+              style={{ color: "#0a0a0a" }}
             >
               {link}
             </a>
